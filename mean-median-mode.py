@@ -33,20 +33,10 @@ def median(num: list) -> int:
     
 def mode(num: list) -> int:
     """This function finds the mode in a list"""    
-    highest_count = 0
-    highest_num = 0
-    
-    current_count = 0
-    current_num = num[0]
-    
+    highest_count = 1
+    modes = []
     for x in num:
-        if x == current_num:
-            current_count += 1
-            if current_count > highest_count:
-                highest_count = current_count
-                highest_num = current_num
-        else:
-            current_num = x
-            current_count = 1
-            
-    return highest_num
+        if num.count(x) >= highest_count and x not in modes:
+            highest_count = num.count(x)
+            modes.append(x)
+    return modes
